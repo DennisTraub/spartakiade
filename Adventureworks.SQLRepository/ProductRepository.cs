@@ -87,22 +87,6 @@ namespace Adventureworks.SQLRepository
             return ms;
         }
 
-        public IQueryable<Product> GetProductsByCategory(int productSubcategoryID)
-        {
-            return _db.Products.Include("ProductProductPhotoes").OrderBy("it.ProductID").Where(p => p.ProductSubcategoryID == productSubcategoryID);
-        }
-
-        public void CreateProduct(Product product)
-        {
-            this._db.Products.AddObject(product);
-            this._db.SaveChanges();
-        }
-
-
-        public bool ProductExists(string productName)
-        {
-            Product product = _db.Products.Where<Product>(p => p.Name == productName).FirstOrDefault<Product>();
-            return product != null;
-        }
+               
     }
 }

@@ -13,8 +13,8 @@ namespace Adventureworks.Domain.Interfaces
         Product GetProductById(int productID);
         MemoryStream GetProductThumbnail(int productPhotoID);
         MemoryStream GetProductPhoto(int productPhotoID);
-        IQueryable<Product> GetProductsByCategory(int productSubcategoryID);
-        void CreateProduct(Product product);
-        bool ProductExists(string productName);
+        //IQueryable<Product> GetProductsByCategory(int productSubcategoryID);
+        //void CreateProduct(Product product);
+        //bool ProductExists(string productName);
     }
 }

@@ -57,9 +57,18 @@ namespace Adventureworks.Web.Controllers
             product.rowguid = Guid.NewGuid();
             product.ModifiedDate = DateTime.Now;
 
-            _productRepository.CreateProduct(product);
+            CreateProductInDatabase(product);
 
             return RedirectToAction("Index");
+        }
+
+        public void CreateProductInDatabase(Product product)
+        {
+            using (var db = new AdventureWorks2008R2Entities())
+            {
+                db.Products.AddObject(product);
+                db.SaveChanges();
+            }
         }
 
         public JsonResult DynamicGridData(string sidx, string sord, int page, int rows)

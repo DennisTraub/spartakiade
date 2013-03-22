@@ -13,6 +13,7 @@ namespace Adventureworks.Web.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly AdventureWorks2008R2Entities _db = new AdventureWorks2008R2Entities();
         private readonly IProductRepository _productRepository;
 
         [ImportingConstructor]
@@ -23,7 +24,7 @@ namespace Adventureworks.Web.Controllers
 
         public ActionResult Index(int subcategoryId)
         {
-            IQueryable<Product> products = _productRepository.GetProductsByCategory(subcategoryId);
+            IQueryable<Product> products = GetProductsByCategory(subcategoryId);
 
             ViewBag.TotalCount = products.Count();
             ViewBag.SubcategoryName = GetProductSubcategoryById(subcategoryId).Name;
@@ -34,17 +35,13 @@ namespace Adventureworks.Web.Controllers
 
         private ProductSubcategory GetProductSubcategoryById(int subcategoryId)
         {
-            using (var db = new AdventureWorks2008R2Entities())
-            {
-                return db.ProductSubcategories.Single<ProductSubcategory>(cat => cat.ProductSubcategoryID == subcategoryId);
-            }
-
+                return _db.ProductSubcategories.Single<ProductSubcategory>(cat => cat.ProductSubcategoryID == subcategoryId);
         }
 
         public ActionResult ProductGrid(int subcategoryId, int? page)
         {
             int currentPage = page.GetValueOrDefault(1);
-            IQueryable<Product> products = _productRepository.GetProductsByCategory(subcategoryId);
+            IQueryable<Product> products = GetProductsByCategory(subcategoryId);
 
             ViewBag.CurrentPage = currentPage;
             ViewBag.TotalCount = products.Count();
@@ -78,7 +75,7 @@ namespace Adventureworks.Web.Controllers
         public JsonResult IsProductName_Available(string name)
         {
 
-            if (!_productRepository.ProductExists(name))
+            if (!ProductExists(name))
                 return Json(true, JsonRequestBehavior.AllowGet);
 
             string suggestedUID = String.Format(CultureInfo.InvariantCulture,
@@ -87,7 +84,7 @@ namespace Adventureworks.Web.Controllers
             for (int i = 1; i < 100; i++)
             {
                 string altCandidate = name + i.ToString();
-                if (!_productRepository.ProductExists(altCandidate))
+                if (!ProductExists(altCandidate))
                 {
                     suggestedUID = String.Format(CultureInfo.InvariantCulture,
                    "{0} is not available. Try {1}.", name, altCandidate);
@@ -95,6 +92,20 @@ namespace Adventureworks.Web.Controllers
                 }
             }
             return Json(suggestedUID, JsonRequestBehavior.AllowGet);
+        }
+
+        public IQueryable<Product> GetProductsByCategory(int productSubcategoryID)
+        {
+                return
+                    _db.Products.Include("ProductProductPhotoes")
+                      .OrderBy("it.ProductID")
+                      .Where(p => p.ProductSubcategoryID == productSubcategoryID);
+        }
+
+        public bool ProductExists(string productName)
+        {
+                Product product = _db.Products.Where<Product>(p => p.Name == productName).FirstOrDefault<Product>();
+                return product != null;
         }
 
     }
