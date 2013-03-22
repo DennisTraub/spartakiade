@@ -19,42 +19,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurchasingProcess.Activities", "PurchasingProcess.Activities\PurchasingProcess.Activities.csproj", "{61793815-397C-40F2-B5EA-A8FCC2AF4D9F}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 11
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs24
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Adventureworks.AnalysisModel\\Adventureworks.AnalysisModel.modelproj
-		SccProjectName1 = Adventureworks.AnalysisModel
-		SccLocalPath1 = Adventureworks.AnalysisModel
-		SccProjectUniqueName2 = Adventureworks.DesignModel\\Adventureworks.DesignModel.modelproj
-		SccProjectName2 = Adventureworks.DesignModel
-		SccLocalPath2 = Adventureworks.DesignModel
-		SccProjectUniqueName3 = Adventureworks.Web\\Adventureworks.Web.csproj
-		SccProjectName3 = Adventureworks.Web
-		SccLocalPath3 = Adventureworks.Web
-		SccProjectUniqueName4 = Adventureworks.Web.Tests\\Adventureworks.Web.Tests.csproj
-		SccProjectName4 = Adventureworks.Web.Tests
-		SccLocalPath4 = Adventureworks.Web.Tests
-		SccProjectUniqueName5 = Adventureworks.SQLRepository\\Adventureworks.SQLRepository.csproj
-		SccProjectName5 = Adventureworks.SQLRepository
-		SccLocalPath5 = Adventureworks.SQLRepository
-		SccProjectUniqueName6 = Adventureworks.Domain\\Adventureworks.Domain.csproj
-		SccProjectName6 = Adventureworks.Domain
-		SccLocalPath6 = Adventureworks.Domain
-		SccProjectUniqueName7 = Adventureworks.Infrastructure\\Adventureworks.Infrastructure.csproj
-		SccProjectName7 = Adventureworks.Infrastructure
-		SccLocalPath7 = Adventureworks.Infrastructure
-		SccProjectUniqueName8 = PurchaseProcess\\PurchaseProcess.csproj
-		SccProjectName8 = PurchaseProcess
-		SccLocalPath8 = PurchaseProcess
-		SccProjectUniqueName9 = FileRepository\\Adventureworks.FileRepository.csproj
-		SccProjectName9 = FileRepository
-		SccLocalPath9 = FileRepository
-		SccProjectUniqueName10 = PurchasingProcess.Activities\\PurchasingProcess.Activities.csproj
-		SccProjectName10 = PurchasingProcess.Activities
-		SccLocalPath10 = PurchasingProcess.Activities
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
