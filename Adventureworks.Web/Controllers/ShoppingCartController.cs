@@ -5,19 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Adventureworks.Domain;
-using Adventureworks.Domain.Interfaces;
 
 namespace Adventureworks.Web.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        private readonly IProductRepository _productRepository;
-
-        [ImportingConstructor]
-        public ShoppingCartController(IProductRepository productRepository)
-        {
-            this._productRepository = productRepository;
-        }
 
         //
         // GET: /ShoppingCart/
@@ -69,7 +61,7 @@ namespace Adventureworks.Web.Controllers
         {
             AddToCart(this.HttpContext.User.Identity.Name, id, 1);
 
-            Product product = _productRepository.GetProductById(id);
+            Product product = GetProductById(id);
 
             return Json(new
             {
@@ -182,6 +174,15 @@ namespace Adventureworks.Web.Controllers
                                                              })).ToArray();
 
             return Json(dataRows, JsonRequestBehavior.AllowGet);
+        }
+
+        public Product GetProductById(int productID)
+        {
+            using (var db = new AdventureWorks2008R2Entities())
+            {
+                Product product = db.Products.Where<Product>(p => p.ProductID == productID).FirstOrDefault<Product>();
+                return product;
+            }
         }
     }
 }

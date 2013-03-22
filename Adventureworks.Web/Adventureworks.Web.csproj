@@ -92,6 +92,7 @@
     </Compile>
     <Compile Include="Helpers\ImageResult.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\FeaturedProducts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\PurchasingService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -252,10 +253,6 @@
     <ProjectReference Include="..\Adventureworks.Infrastructure\Adventureworks.Infrastructure.csproj">
       <Project>{1AF19E2C-C0A4-4502-A59D-6150A3562848}</Project>
       <Name>Adventureworks.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Adventureworks.SQLRepository\Adventureworks.SQLRepository.csproj">
-      <Project>{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}</Project>
-      <Name>Adventureworks.SQLRepository</Name>
     </ProjectReference>
     <ProjectReference Include="..\FileRepository\Adventureworks.FileRepository.csproj">
       <Project>{4C3E488B-DA3A-4F83-B73A-655652D36953}</Project>

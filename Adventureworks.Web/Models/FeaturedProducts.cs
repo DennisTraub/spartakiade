@@ -1,30 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
 using System.Linq;
-using System.Text;
 using System.Web;
-using Adventureworks.Domain.Interfaces;
 using Adventureworks.Domain;
-using System.Data.Objects.DataClasses;
-using System.IO;
-using System.Drawing;
 
-namespace Adventureworks.SQLRepository
+namespace Adventureworks.Web.Models
 {
-    [Export(typeof(IProductRepository))]
-    public class ProductRepository : IProductRepository
+    public class FeaturedProducts
     {
         private readonly AdventureWorks2008R2Entities _db = new AdventureWorks2008R2Entities();
 
-        public IQueryable<Product> GetFeaturedProducts()
+        public IQueryable<Product> Load()
         {
             IList<Product> products = new List<Product>();
             Product product;
             ProductPhoto prodPhoto;
             ProductProductPhoto prodProdPhoto;
 
-            product = new Product();            
+            product = new Product();
             product.Name = "Road-150 Red, 48";
             prodPhoto = new ProductPhoto();
             prodPhoto.PhotoPath = "~/Content/Images/SampleCycles/cycle1.gif";
@@ -59,34 +52,5 @@ namespace Adventureworks.SQLRepository
 
             return products.AsQueryable<Product>();
         }
-
-        public IQueryable<Product> GetTop100Products()
-        {
-            return this._db.Products.Top("100");
-        }
-
-        public Product GetProductById(int productID)
-        {
-            Product product = _db.Products.Where<Product>(p => p.ProductID == productID).FirstOrDefault<Product>();
-            return product;
-        }
-
-        public MemoryStream GetProductThumbnail(int productPhotoID)
-        {
-            byte[] thumbNailPhoto = _db.ProductPhotoes.Where<ProductPhoto>(pp => pp.ProductPhotoID == productPhotoID).FirstOrDefault<ProductPhoto>().ThumbNailPhoto;
-            MemoryStream ms = new MemoryStream(thumbNailPhoto);
-            Image image = Image.FromStream(ms);
-            return ms;
-        }
-
-        public MemoryStream GetProductPhoto(int productPhotoID)
-        {
-            byte[] largePhoto = _db.ProductPhotoes.Where<ProductPhoto>(pp => pp.ProductPhotoID == productPhotoID).FirstOrDefault<ProductPhoto>().LargePhoto;
-            MemoryStream ms = new MemoryStream(largePhoto);
-            Image image = Image.FromStream(ms);
-            return ms;
-        }
-
-               
     }
 }

@@ -8,8 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Web", "Adven
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Web.Tests", "Adventureworks.Web.Tests\Adventureworks.Web.Tests.csproj", "{28821030-B242-46A6-99BA-AEEE3A0060CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.SQLRepository", "Adventureworks.SQLRepository\Adventureworks.SQLRepository.csproj", "{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Domain", "Adventureworks.Domain\Adventureworks.Domain.csproj", "{B0AABEB9-E52D-48C1-9203-39C311465FF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Infrastructure", "Adventureworks.Infrastructure\Adventureworks.Infrastructure.csproj", "{1AF19E2C-C0A4-4502-A59D-6150A3562848}"
@@ -70,10 +68,6 @@ Global
 		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B0AABEB9-E52D-48C1-9203-39C311465FF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B0AABEB9-E52D-48C1-9203-39C311465FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0AABEB9-E52D-48C1-9203-39C311465FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU

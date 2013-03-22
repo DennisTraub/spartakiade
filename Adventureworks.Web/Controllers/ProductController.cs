@@ -6,21 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Adventureworks.Domain;
-using Adventureworks.SQLRepository;
-using Adventureworks.Domain.Interfaces;
 
 namespace Adventureworks.Web.Controllers
 {
     public class ProductController : Controller
     {
         private readonly AdventureWorks2008R2Entities _db = new AdventureWorks2008R2Entities();
-        private readonly IProductRepository _productRepository;
 
-        [ImportingConstructor]
-        public ProductController(IProductRepository productRepository)
-        {
-            this._productRepository = productRepository;
-        }
 
         public ActionResult Index(int subcategoryId)
         {
@@ -55,14 +47,14 @@ namespace Adventureworks.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            Product product = _productRepository.GetProductById(id);
+            Product product = GetProductById(id);
 
             return View(product);
         }
 
         public JsonResult JsonDetails(int id)
         {
-            Product product = _productRepository.GetProductById(id);
+            Product product = GetProductById(id);
 
             return Json(new
                         {
@@ -92,6 +84,12 @@ namespace Adventureworks.Web.Controllers
                 }
             }
             return Json(suggestedUID, JsonRequestBehavior.AllowGet);
+        }
+
+        public Product GetProductById(int productID)
+        {
+            Product product = _db.Products.Where<Product>(p => p.ProductID == productID).FirstOrDefault<Product>();
+            return product;
         }
 
         public IQueryable<Product> GetProductsByCategory(int productSubcategoryID)

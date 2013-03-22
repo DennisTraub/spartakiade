@@ -5,20 +5,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 using Adventureworks.Domain;
-using Adventureworks.Domain.Interfaces;
+using Adventureworks.Web.Models;
 
 namespace Adventureworks.Web.Controllers
 {
     [Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
-        private readonly IProductRepository _productRepository;
-
-        [ImportingConstructor]
-        public AdminController(IProductRepository productRepository)
-        {
-            _productRepository = productRepository;
-        }
 
         //
         // GET: /Admin/
@@ -30,7 +23,8 @@ namespace Adventureworks.Web.Controllers
 
         public ActionResult BrowseProducts()
         {
-            IQueryable<Product> products = _productRepository.GetFeaturedProducts();
+            var featuredProducts = new FeaturedProducts();
+            IQueryable<Product> products = featuredProducts.Load();
 
             return PartialView(products);
         }
@@ -91,11 +85,11 @@ namespace Adventureworks.Web.Controllers
                 switch (sord)
                 {
                     case "asc":
-                        products = _productRepository.GetTop100Products().OrderBy(func)
+                        products = GetTop100Products().OrderBy(func)
                             .Skip(pageIndex*pageSize).Take(pageSize).AsEnumerable();
                         break;
                     case "desc":
-                        products = _productRepository.GetTop100Products().OrderByDescending(func)
+                        products = GetTop100Products().OrderByDescending(func)
                             .Skip(pageIndex*pageSize).Take(pageSize).AsEnumerable();
                         break;
                     default:
@@ -125,6 +119,14 @@ namespace Adventureworks.Web.Controllers
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        public IQueryable<Product> GetTop100Products()
+        {
+            using (var db = new AdventureWorks2008R2Entities())
+            {
+                return db.Products.Top("100");
             }
         }
     }
