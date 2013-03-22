@@ -47,51 +47,6 @@ namespace Adventureworks.SQLRepository
         }
 
 
-        public decimal GetTotal(string shoppingCartID)
-        {
-            decimal? total =
-                (from cartItems in _db.ShoppingCartItems
-                 where cartItems.ShoppingCartID == shoppingCartID
-                 select (int?)cartItems.Quantity * cartItems.Product.ListPrice)
-                .Sum();
 
-            return total ?? decimal.Zero;
-        }
-
-
-        public int RemoveFromCart(string shoppingCartID, int cartItemID)
-        {
-            int itemCount = 0;
-            //Get the cart
-            var cartItem = _db.ShoppingCartItems.Single(
-                cart => cart.ShoppingCartID == shoppingCartID
-                && cart.ShoppingCartItemID == cartItemID);
-
-            if (cartItem != null)
-            {
-                if (cartItem.Quantity > 1)
-                {
-                    cartItem.Quantity--;
-                    itemCount = cartItem.Quantity;
-                }
-                else
-                {
-                    _db.ShoppingCartItems.DeleteObject(cartItem);
-                }
-                _db.SaveChanges();
-            }
-
-            return itemCount;
-        }
-
-
-        public int GetCount(string shoppingCartID)
-        {
-            int? count = (from cartItems in _db.ShoppingCartItems
-                          where cartItems.ShoppingCartID == shoppingCartID
-                          select (int?)cartItems.Quantity).Sum();
-
-            return count ?? 0;
-        }
     }
 }

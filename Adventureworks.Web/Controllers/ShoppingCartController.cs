@@ -28,9 +28,23 @@ namespace Adventureworks.Web.Controllers
         {
             var cartItems =
                 this._shoppingCartRepository.GetCartItemsByID(this.HttpContext.User.Identity.Name).AsEnumerable();
-            ViewBag.CartTotal = this._shoppingCartRepository.GetTotal(this.HttpContext.User.Identity.Name);
+            ViewBag.CartTotal = GetTotal(this.HttpContext.User.Identity.Name);
 
             return View(cartItems);
+        }
+
+        private decimal GetTotal(string shoppingCartID)
+        {
+            using (var db = new AdventureWorks2008R2Entities())
+            {
+                decimal? total =
+                (from cartItems in db.ShoppingCartItems
+                 where cartItems.ShoppingCartID == shoppingCartID
+                 select (int?)cartItems.Quantity * cartItems.Product.ListPrice)
+                .Sum();
+
+                return total ?? decimal.Zero;
+            }
         }
 
         public ActionResult AddToCart(int id)
@@ -65,13 +79,53 @@ namespace Adventureworks.Web.Controllers
             var results = new {
                 Message = Server.HtmlEncode(id.ToString()) +
                     " has been removed from your shopping cart.",
-                CartTotal = _shoppingCartRepository.GetTotal(this.HttpContext.User.Identity.Name),
-                CartCount = _shoppingCartRepository.GetCount(this.HttpContext.User.Identity.Name),
-                ItemCount = this._shoppingCartRepository.RemoveFromCart(this.HttpContext.User.Identity.Name, id),
+                CartTotal = GetTotal(this.HttpContext.User.Identity.Name),
+                CartCount = GetCount(this.HttpContext.User.Identity.Name),
+                ItemCount = RemoveFromCart(this.HttpContext.User.Identity.Name, id),
                 DeleteId = id
             };
 
             return Json(results);
+        }
+
+        private int GetCount(string shoppingCartID)
+        {
+            using (var db = new AdventureWorks2008R2Entities())
+            {
+                int? count = (from cartItems in db.ShoppingCartItems
+                              where cartItems.ShoppingCartID == shoppingCartID
+                              select (int?) cartItems.Quantity).Sum();
+
+                return count ?? 0;
+            }
+        }
+
+        private int RemoveFromCart(string shoppingCartId, int cartItemId)
+        {
+            using (var db = new AdventureWorks2008R2Entities())
+            {
+                int itemCount = 0;
+                //Get the cart
+                var cartItem = db.ShoppingCartItems.Single(
+                    cart => cart.ShoppingCartID == shoppingCartId
+                            && cart.ShoppingCartItemID == cartItemId);
+
+                if (cartItem != null)
+                {
+                    if (cartItem.Quantity > 1)
+                    {
+                        cartItem.Quantity--;
+                        itemCount = cartItem.Quantity;
+                    }
+                    else
+                    {
+                        db.ShoppingCartItems.DeleteObject(cartItem);
+                    }
+                    db.SaveChanges();
+                }
+
+                return itemCount;
+            }
         }
 
         public JsonResult GetCartItems()
