@@ -1,0 +1,101 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Web", "Adventureworks.Web\Adventureworks.Web.csproj", "{5D85154F-1587-4F7A-9DE3-E0C91BDD7A6D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EB2C9373-66DB-47A9-8EFA-423911F232E6} = {EB2C9373-66DB-47A9-8EFA-423911F232E6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Web.Tests", "Adventureworks.Web.Tests\Adventureworks.Web.Tests.csproj", "{28821030-B242-46A6-99BA-AEEE3A0060CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.SQLRepository", "Adventureworks.SQLRepository\Adventureworks.SQLRepository.csproj", "{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Domain", "Adventureworks.Domain\Adventureworks.Domain.csproj", "{B0AABEB9-E52D-48C1-9203-39C311465FF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Infrastructure", "Adventureworks.Infrastructure\Adventureworks.Infrastructure.csproj", "{1AF19E2C-C0A4-4502-A59D-6150A3562848}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurchaseProcess", "PurchaseProcess\PurchaseProcess.csproj", "{EB2C9373-66DB-47A9-8EFA-423911F232E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.FileRepository", "FileRepository\Adventureworks.FileRepository.csproj", "{4C3E488B-DA3A-4F83-B73A-655652D36953}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurchasingProcess.Activities", "PurchasingProcess.Activities\PurchasingProcess.Activities.csproj", "{61793815-397C-40F2-B5EA-A8FCC2AF4D9F}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs24
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Adventureworks.AnalysisModel\\Adventureworks.AnalysisModel.modelproj
+		SccProjectName1 = Adventureworks.AnalysisModel
+		SccLocalPath1 = Adventureworks.AnalysisModel
+		SccProjectUniqueName2 = Adventureworks.DesignModel\\Adventureworks.DesignModel.modelproj
+		SccProjectName2 = Adventureworks.DesignModel
+		SccLocalPath2 = Adventureworks.DesignModel
+		SccProjectUniqueName3 = Adventureworks.Web\\Adventureworks.Web.csproj
+		SccProjectName3 = Adventureworks.Web
+		SccLocalPath3 = Adventureworks.Web
+		SccProjectUniqueName4 = Adventureworks.Web.Tests\\Adventureworks.Web.Tests.csproj
+		SccProjectName4 = Adventureworks.Web.Tests
+		SccLocalPath4 = Adventureworks.Web.Tests
+		SccProjectUniqueName5 = Adventureworks.SQLRepository\\Adventureworks.SQLRepository.csproj
+		SccProjectName5 = Adventureworks.SQLRepository
+		SccLocalPath5 = Adventureworks.SQLRepository
+		SccProjectUniqueName6 = Adventureworks.Domain\\Adventureworks.Domain.csproj
+		SccProjectName6 = Adventureworks.Domain
+		SccLocalPath6 = Adventureworks.Domain
+		SccProjectUniqueName7 = Adventureworks.Infrastructure\\Adventureworks.Infrastructure.csproj
+		SccProjectName7 = Adventureworks.Infrastructure
+		SccLocalPath7 = Adventureworks.Infrastructure
+		SccProjectUniqueName8 = PurchaseProcess\\PurchaseProcess.csproj
+		SccProjectName8 = PurchaseProcess
+		SccLocalPath8 = PurchaseProcess
+		SccProjectUniqueName9 = FileRepository\\Adventureworks.FileRepository.csproj
+		SccProjectName9 = FileRepository
+		SccLocalPath9 = FileRepository
+		SccProjectUniqueName10 = PurchasingProcess.Activities\\PurchasingProcess.Activities.csproj
+		SccProjectName10 = PurchasingProcess.Activities
+		SccLocalPath10 = PurchasingProcess.Activities
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D85154F-1587-4F7A-9DE3-E0C91BDD7A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D85154F-1587-4F7A-9DE3-E0C91BDD7A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D85154F-1587-4F7A-9DE3-E0C91BDD7A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D85154F-1587-4F7A-9DE3-E0C91BDD7A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC4C52D-EE8C-4A12-9959-E738DFFEBAB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0AABEB9-E52D-48C1-9203-39C311465FF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AABEB9-E52D-48C1-9203-39C311465FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AABEB9-E52D-48C1-9203-39C311465FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AABEB9-E52D-48C1-9203-39C311465FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AF19E2C-C0A4-4502-A59D-6150A3562848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AF19E2C-C0A4-4502-A59D-6150A3562848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AF19E2C-C0A4-4502-A59D-6150A3562848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AF19E2C-C0A4-4502-A59D-6150A3562848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2C9373-66DB-47A9-8EFA-423911F232E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2C9373-66DB-47A9-8EFA-423911F232E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2C9373-66DB-47A9-8EFA-423911F232E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2C9373-66DB-47A9-8EFA-423911F232E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C3E488B-DA3A-4F83-B73A-655652D36953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C3E488B-DA3A-4F83-B73A-655652D36953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C3E488B-DA3A-4F83-B73A-655652D36953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C3E488B-DA3A-4F83-B73A-655652D36953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61793815-397C-40F2-B5EA-A8FCC2AF4D9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61793815-397C-40F2-B5EA-A8FCC2AF4D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61793815-397C-40F2-B5EA-A8FCC2AF4D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61793815-397C-40F2-B5EA-A8FCC2AF4D9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
