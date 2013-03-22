@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShoppingCartRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adventureworks.Domain\Adventureworks.Domain.csproj">
