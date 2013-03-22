@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Xml.Linq;
 using Adventureworks.Domain;
 using Adventureworks.FileRepository.Common;
+using Adventureworks.Web.Models;
 using Adventureworks.Web.PurchasingService;
 using Adventureworks.FileRepository;
 
@@ -56,14 +57,14 @@ namespace Adventureworks.Web.Controllers
             // invited vendors
             foreach (XElement vendorElem in elem.Element("invitedVendors").Elements("vendor"))
             {
-                Vendor vendor = VendorRepository.Retrieve(Convert.ToInt32(vendorElem.Attribute("id").Value, new CultureInfo("EN-us")));
+                Vendor vendor = Vendors.Retrieve(Convert.ToInt32(vendorElem.Attribute("id").Value, new CultureInfo("EN-us")));
                 rfp.InvitedVendors.Add(vendor);
             }
 
             // map received proposals in the list
             foreach (var proposal in elem.Element("vendorProposals").Elements("vendorProposal"))
             {
-                Vendor vendor = VendorRepository.Retrieve(int.Parse(proposal.Attribute("vendorId").Value, new CultureInfo("EN-us")));
+                Vendor vendor = Vendors.Retrieve(int.Parse(proposal.Attribute("vendorId").Value, new CultureInfo("EN-us")));
                 VendorProposal vendorProposal = new VendorProposal(vendor.Id);
                 vendorProposal.Value = double.Parse(proposal.Attribute("value").Value, new CultureInfo("EN-us"));
                 vendorProposal.Date = DateTime.Parse(proposal.Attribute("date").Value, new CultureInfo("EN-us"));
@@ -73,7 +74,7 @@ namespace Adventureworks.Web.Controllers
             // map best proposal
             if (elem.Element("bestProposal") != null)
             {
-                Vendor bestVendor = VendorRepository.Retrieve(Convert.ToInt32(elem.Element("bestProposal").Attribute("vendorId").Value, new CultureInfo("EN-us")));
+                Vendor bestVendor = Vendors.Retrieve(Convert.ToInt32(elem.Element("bestProposal").Attribute("vendorId").Value, new CultureInfo("EN-us")));
                 rfp.BestProposal = new VendorProposal(bestVendor.Id);
                 rfp.BestProposal.Value = double.Parse(elem.Element("bestProposal").Attribute("value").Value, new CultureInfo("EN-us"));
                 rfp.BestProposal.Date = DateTime.Parse(elem.Element("bestProposal").Attribute("date").Value, new CultureInfo("EN-us"));
@@ -95,7 +96,7 @@ namespace Adventureworks.Web.Controllers
             string[] invitedVendors = Request.Form["InvitedVendors"].Split(',');
             foreach (var invitedVendor in invitedVendors)
             {
-                rfp.InvitedVendors.Add(VendorRepository.Retrieve(int.Parse(invitedVendor)));
+                rfp.InvitedVendors.Add(Vendors.Retrieve(int.Parse(invitedVendor)));
             }
 
             try

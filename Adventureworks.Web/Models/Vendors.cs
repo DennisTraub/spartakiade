@@ -1,17 +1,9 @@
-﻿//-----------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation.  All rights reserved.
-//-----------------------------------------------------------------------------
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Adventureworks.Domain;
 
-namespace Adventureworks.FileRepository
+namespace Adventureworks.Web.Models
 {
-
-    /// <summary>
-    /// Repository of Vendor instances
-    /// </summary>
-    public static class VendorRepository
+    public static class Vendors
     {
         static IDictionary<int, Vendor> allVendors = new Dictionary<int, Vendor>
             {                

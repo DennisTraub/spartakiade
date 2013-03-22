@@ -6,15 +6,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Web", "Adven
 		{EB2C9373-66DB-47A9-8EFA-423911F232E6} = {EB2C9373-66DB-47A9-8EFA-423911F232E6}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Web.Tests", "Adventureworks.Web.Tests\Adventureworks.Web.Tests.csproj", "{28821030-B242-46A6-99BA-AEEE3A0060CD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Domain", "Adventureworks.Domain\Adventureworks.Domain.csproj", "{B0AABEB9-E52D-48C1-9203-39C311465FF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.Infrastructure", "Adventureworks.Infrastructure\Adventureworks.Infrastructure.csproj", "{1AF19E2C-C0A4-4502-A59D-6150A3562848}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurchaseProcess", "PurchaseProcess\PurchaseProcess.csproj", "{EB2C9373-66DB-47A9-8EFA-423911F232E6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventureworks.FileRepository", "FileRepository\Adventureworks.FileRepository.csproj", "{4C3E488B-DA3A-4F83-B73A-655652D36953}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurchasingProcess.Activities", "PurchasingProcess.Activities\PurchasingProcess.Activities.csproj", "{61793815-397C-40F2-B5EA-A8FCC2AF4D9F}"
 EndProject
@@ -28,10 +24,6 @@ Global
 		{5D85154F-1587-4F7A-9DE3-E0C91BDD7A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D85154F-1587-4F7A-9DE3-E0C91BDD7A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D85154F-1587-4F7A-9DE3-E0C91BDD7A6D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28821030-B242-46A6-99BA-AEEE3A0060CD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B0AABEB9-E52D-48C1-9203-39C311465FF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B0AABEB9-E52D-48C1-9203-39C311465FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0AABEB9-E52D-48C1-9203-39C311465FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,10 +36,6 @@ Global
 		{EB2C9373-66DB-47A9-8EFA-423911F232E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB2C9373-66DB-47A9-8EFA-423911F232E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB2C9373-66DB-47A9-8EFA-423911F232E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4C3E488B-DA3A-4F83-B73A-655652D36953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C3E488B-DA3A-4F83-B73A-655652D36953}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C3E488B-DA3A-4F83-B73A-655652D36953}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C3E488B-DA3A-4F83-B73A-655652D36953}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61793815-397C-40F2-B5EA-A8FCC2AF4D9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61793815-397C-40F2-B5EA-A8FCC2AF4D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61793815-397C-40F2-B5EA-A8FCC2AF4D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU

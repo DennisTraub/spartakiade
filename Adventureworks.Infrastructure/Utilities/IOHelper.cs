@@ -10,9 +10,6 @@ using System.Xml.Linq;
 namespace Adventureworks.FileRepository.Common
 {
 
-    /// <summary>
-    /// This class is helper to deal with all IO related issues (folders, paths, etc.)
-    /// </summary>
     public static class IOHelper
     {
         public static readonly string InstanceFormatString = "{0}.xml";

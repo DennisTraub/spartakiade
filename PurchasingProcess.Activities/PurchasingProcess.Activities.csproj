@@ -66,9 +66,9 @@
       <Project>{B0AABEB9-E52D-48C1-9203-39C311465FF9}</Project>
       <Name>Adventureworks.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FileRepository\Adventureworks.FileRepository.csproj">
-      <Project>{4C3E488B-DA3A-4F83-B73A-655652D36953}</Project>
-      <Name>Adventureworks.FileRepository</Name>
+    <ProjectReference Include="..\Adventureworks.Infrastructure\Adventureworks.Infrastructure.csproj">
+      <Project>{1AF19E2C-C0A4-4502-A59D-6150A3562848}</Project>
+      <Name>Adventureworks.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

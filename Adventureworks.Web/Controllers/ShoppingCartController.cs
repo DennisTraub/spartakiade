@@ -16,23 +16,25 @@ namespace Adventureworks.Web.Controllers
 
         public ActionResult Index()
         {
-            var cartItems =
-                GetCartItemsByID(this.HttpContext.User.Identity.Name).AsEnumerable();
-            ViewBag.CartTotal = GetTotal(this.HttpContext.User.Identity.Name);
-
-            return View(cartItems);
-        }
-
-        public IQueryable<ShoppingCartItem> GetCartItemsByID(string shoppingCartID)
-        {
             using (var db = new AdventureWorks2008R2Entities())
             {
+                var cartItems =
+                    GetCartItemsByID(this.HttpContext.User.Identity.Name, db).AsEnumerable();
+                ViewBag.CartTotal = GetTotal(this.HttpContext.User.Identity.Name);
+
+                return View(cartItems);
+            }
+        }
+
+        public IQueryable<ShoppingCartItem> GetCartItemsByID(string shoppingCartID, AdventureWorks2008R2Entities db)
+        {
+            
                 var cartItems = from cart in db.ShoppingCartItems
                                 where cart.ShoppingCartID == shoppingCartID
                                 select cart;
 
                 return cartItems;
-            }
+            
         }
 
         private decimal GetTotal(string shoppingCartID)
@@ -161,19 +163,30 @@ namespace Adventureworks.Web.Controllers
 
         public JsonResult GetCartItems()
         {
-            var cartItems =
-                GetCartItemsByID(this.HttpContext.User.Identity.Name).AsEnumerable();
+            using (var db = new AdventureWorks2008R2Entities())
+            {
+                var cartItems =
+                    GetCartItemsByID(this.HttpContext.User.Identity.Name, db).AsEnumerable();
 
-            var dataRows = (cartItems.Select(cartItem => new {
-                                                                 product = new {
-                                                                                 Id = cartItem.ProductID,
-                                                                                 cartItem.Product.Name, 
-                                                                                 LargeUrl = VirtualPathUtility.ToAbsolute("~/Image/ProductThumbnail?productPhotoID=" + cartItem.Product.ProductProductPhotoes.FirstOrDefault<ProductProductPhoto>().ProductPhotoID) },
-                                                                 date = cartItem.DateCreated,
-                                                                 quantity = cartItem.Quantity
-                                                             })).ToArray();
+                var dataRows = (cartItems.Select(cartItem => new
+                    {
+                        product = new
+                            {
+                                Id = cartItem.ProductID,
+                                cartItem.Product.Name,
+                                LargeUrl =
+                                                                 VirtualPathUtility.ToAbsolute(
+                                                                     "~/Image/ProductThumbnail?productPhotoID=" +
+                                                                     cartItem.Product.ProductProductPhotoes
+                                                                             .FirstOrDefault<ProductProductPhoto>()
+                                                                             .ProductPhotoID)
+                            },
+                        date = cartItem.DateCreated,
+                        quantity = cartItem.Quantity
+                    })).ToArray();
 
-            return Json(dataRows, JsonRequestBehavior.AllowGet);
+                return Json(dataRows, JsonRequestBehavior.AllowGet);
+            }
         }
 
         public Product GetProductById(int productID)

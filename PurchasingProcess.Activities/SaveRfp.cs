@@ -13,9 +13,8 @@
 //  organization, product, domain name, email address, logo, person,
 //  places, or events is intended or should be inferred.
 //  ----------------------------------------------------------------------------------
-using System;
+
 using System.Activities;
-using System.Activities.Hosting;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -32,20 +31,6 @@ namespace PurchasingProcess.Activities
         {
             var requestForProposal = Rfp.Get(context);
             requestForProposal.ID = context.WorkflowInstanceId;
-
-            //IOHelper.EnsureAllRfpFileExists();
-
-            //// load the document
-            //XElement doc = XElement.Load(IOHelper.GetAllRfpsFileName());
-
-            //// get the Xml version of the Rfp, add it to the document and save it
-            //if (requestForProposal != null)
-            //{
-            //    XElement e = SerializeRfp(requestForProposal);
-            //    doc.Add(e);
-            //}
-
-            //doc.Save(IOHelper.GetAllRfpsFileName());
 
             IOHelper.EnsureAllRfpFileExists();
 
