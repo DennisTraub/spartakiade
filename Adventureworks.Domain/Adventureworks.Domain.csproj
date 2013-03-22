@@ -56,7 +56,6 @@
     </Compile>
     <Compile Include="Interfaces\ICategoryRepository.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
-    <Compile Include="Interfaces\IPurchasingRepository.cs" />
     <Compile Include="Interfaces\IShoppingCartRepository.cs" />
     <Compile Include="ModelExtensions\VendorSubmitProposalRequest.cs" />
     <Compile Include="ModelExtensions\Product.cs" />
