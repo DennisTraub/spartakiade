@@ -11,24 +11,35 @@ namespace Adventureworks.Web.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ICategoryRepository _categoryRepository;
-
-        public CategoryController(ICategoryRepository categoryRepository)
-        {
-            _categoryRepository = categoryRepository;
-        }
 
         [OutputCache(Duration = 10)]
         [ChildActionOnly]
         public ActionResult Index(int? subcategoryId)
         {
-            ProductSubcategory prodSubcat = _categoryRepository.GetProductSubcategoryById(subcategoryId.GetValueOrDefault(1));
-            var productCategories = _categoryRepository.GetProductCategories();
+            ProductSubcategory prodSubcat = GetProductSubcategoryById(subcategoryId.GetValueOrDefault(1));
+            var productCategories = GetProductCategories();
 
             ViewBag.CurrentProductCategoryId = prodSubcat.ProductCategoryID;
             ViewBag.CurrentProductSubcategoryId = prodSubcat.ProductSubcategoryID;
 
             return PartialView(productCategories);
+        }
+
+        private ProductSubcategory GetProductSubcategoryById(int subcategoryId)
+        {
+            using (var db = new AdventureWorks2008R2Entities())
+            {
+                return db.ProductSubcategories.Single<ProductSubcategory>(cat => cat.ProductSubcategoryID == subcategoryId);
+            }
+            
+        }
+
+        private IList<ProductCategory> GetProductCategories()
+        {
+            using (var db = new AdventureWorks2008R2Entities())
+            {
+                return db.ProductCategories.Include("ProductSubcategories").ToList();
+            }
         }
 
         // GET: /Category/Browse/5

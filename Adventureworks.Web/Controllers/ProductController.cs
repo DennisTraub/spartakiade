@@ -14,13 +14,11 @@ namespace Adventureworks.Web.Controllers
     public class ProductController : Controller
     {
         private readonly IProductRepository _productRepository;
-        private readonly ICategoryRepository _categoryRepository;
 
         [ImportingConstructor]
-        public ProductController(IProductRepository productRepository, ICategoryRepository categoryRepository)
+        public ProductController(IProductRepository productRepository)
         {
             this._productRepository = productRepository;
-            this._categoryRepository = categoryRepository;
         }
 
         public ActionResult Index(int subcategoryId)
@@ -28,10 +26,19 @@ namespace Adventureworks.Web.Controllers
             IQueryable<Product> products = _productRepository.GetProductsByCategory(subcategoryId);
 
             ViewBag.TotalCount = products.Count();
-            ViewBag.SubcategoryName = _categoryRepository.GetProductSubcategoryById(subcategoryId).Name;
+            ViewBag.SubcategoryName = GetProductSubcategoryById(subcategoryId).Name;
             ViewBag.ProductSubcategoryId = subcategoryId;
 
             return View();
+        }
+
+        private ProductSubcategory GetProductSubcategoryById(int subcategoryId)
+        {
+            using (var db = new AdventureWorks2008R2Entities())
+            {
+                return db.ProductSubcategories.Single<ProductSubcategory>(cat => cat.ProductSubcategoryID == subcategoryId);
+            }
+
         }
 
         public ActionResult ProductGrid(int subcategoryId, int? page)
