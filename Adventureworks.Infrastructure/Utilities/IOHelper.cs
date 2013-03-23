@@ -13,7 +13,7 @@ namespace Adventureworks.FileRepository.Common
     public static class IOHelper
     {
         public static readonly string InstanceFormatString = "{0}.xml";
-        public static readonly string PersistenceDirectory = Path.Combine(@"d:\temp", "FilePersistenceProvider");
+        public static readonly string PersistenceDirectory = Path.Combine(@"c:\temp", "FilePersistenceProvider");
 
         public static string GetFileName(Guid id)
         {
